@@ -2,16 +2,16 @@ import "styled-components";
 
 declare module "styled-components" {
   export interface DefaultTheme {
-    colors?: {
+    colors: {
       primary?: string;
       secondary?: string;
     };
-    backgrounds?: {
+    backgrounds: {
       body?: string;
       header?: string;
       recipe?: string;
     };
-    font?: {
+    font: {
       fontFamily?: string;
       fontSize?: string;
       fontColor?: string;
