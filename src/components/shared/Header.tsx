@@ -11,7 +11,7 @@ const Header: React.FC = () => {
       <StyledHeader>
         <HeaderContainer>
           <LogoWrapper>
-            <LogoImage src={Logo} />
+            <LogoImage src={Logo} alt="Food Recipes" />
             <LogoText>Food Recipes</LogoText>
           </LogoWrapper>
           <Search />
