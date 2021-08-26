@@ -9,6 +9,7 @@ export const theme: DefaultTheme = {
     fontFamily: "Open Sans, sans-serif",
     fontColor: "#696d75",
     fontSize: "16px",
+    buttonFontColor: "#ffffff",
   },
   backgrounds: {
     header: "#f5f7fa",
@@ -17,5 +18,5 @@ export const theme: DefaultTheme = {
   },
   border: "none",
   borderRadius: "10px",
-  boxShadow: "2px 2px 2px 2px rgba(0, 0, 0, 0.1)",
+  boxShadow: "2px 2px 4px 1px rgba(0, 0, 0, 0.1)",
 };

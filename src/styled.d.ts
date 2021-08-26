@@ -15,6 +15,7 @@ declare module "styled-components" {
       fontFamily?: string;
       fontSize?: string;
       fontColor?: string;
+      buttonFontColor?: string;
     };
     border?: string;
     borderRadius?: string;

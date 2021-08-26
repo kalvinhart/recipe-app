@@ -14,6 +14,12 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
 
+    :root {
+        --mq-small: 500px;
+        --mq-med: 768px;
+        --mq-large: 1024px;
+    }
+
     body {
         min-height: 100vh;
         background-color: ${(props) => props.theme.backgrounds.body || "white"};
