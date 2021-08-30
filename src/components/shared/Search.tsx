@@ -3,7 +3,7 @@ import { Form, SearchWrapper } from "./Search.styles";
 import { SearchInput } from "../../styles/formStyles";
 import Button from "./Button";
 
-const Search = () => {
+const Search: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const onFormSubmit = (e: React.FormEvent) => {
