@@ -24,8 +24,12 @@ const GlobalStyle = createGlobalStyle`
         min-height: 100vh;
         background-color: ${(props) => props.theme.backgrounds.body || "white"};
         font-family: ${(props) => props.theme.font.fontFamily || "sans-serif"};
-        font-size: ${(props) => props.theme.font.fontSize || "16px"};
+        font-size: 14px;
         color: ${(props) => props.theme.font.fontColor || "darkgrey"};
+
+        @media only screen and (min-width: var(--mq-small)) {
+        font-size: ${(props) => props.theme.font.fontSize || "16px"};
+        }
     }
 
     input,

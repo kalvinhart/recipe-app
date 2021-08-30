@@ -17,3 +17,14 @@ export const HeaderContainer = styled(Container)`
     padding: 0;
   }
 `;
+
+export const RecipeContainer = styled(Container)`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 20px;
+
+  @media only screen and (min-width: var(--mq-med)) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
+`;

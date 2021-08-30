@@ -5,6 +5,7 @@ export const StyledHeader = styled.header`
   width: 100%;
   height: 80px;
   background-color: ${(props) => props.theme.backgrounds.header};
+  margin-bottom: 60px;
 
   @media only screen and (min-width: var(--mq-small)) {
     height: 110px;
