@@ -37,6 +37,15 @@ const GlobalStyle = createGlobalStyle`
         font: inherit;
         color: inherit;
     }
+
+    a {
+        text-decoration: none;
+        color: ${(props) => props.theme.colors.primary};
+    }
+
+    button {
+        font: inherit;
+    }
  `;
 
 export default GlobalStyle;

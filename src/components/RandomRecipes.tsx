@@ -1,27 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { getRandomRecipe } from "../api";
 
-import { RecipeContainer } from "../styles/containerStyles";
-import {
-  InfoTextWrapper,
-  InfoWrapper,
-  LI,
-  RecipeImage,
-  RecipeWrapper,
-  UL,
-} from "../styles/recipeStyles";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { RecipeContainer } from "../styles/containerStyles";
 import { H1, H3 } from "../styles/fontStyles";
+import Recipe from "./shared/Recipe";
 
 import { theme } from "../theme";
 
-interface Recipe {
+interface RecipeState {
   recipes: any[];
 }
 
 const RandomRecipes: React.FC = () => {
-  const [data, setData] = useState<Recipe>({ recipes: [] });
+  const [data, setData] = useState<RecipeState>({ recipes: [] });
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
 
@@ -33,7 +26,7 @@ const RandomRecipes: React.FC = () => {
 
   useEffect(() => {
     try {
-      getData();
+      // getData();
       setLoading(false);
     } catch (err) {
       setError(true);
@@ -52,21 +45,7 @@ const RandomRecipes: React.FC = () => {
         <>
           <H1>Random Recipes</H1>
           {data.recipes.map((item) => (
-            <RecipeWrapper key={item.id}>
-              <H3>{item.title}</H3>
-              <InfoWrapper>
-                <RecipeImage src={item.image} />
-                <InfoTextWrapper>
-                  <UL>
-                    <LI>{item.servings} Servings</LI>
-                    <LI>Ready in {item.readyInMinutes} Minutes</LI>
-                    {item.vegan && <LI>Vegan</LI>}
-                    {item.glutenFree && <LI>Gluten free</LI>}
-                    {item.dairyFree && <LI>Dairy free</LI>}
-                  </UL>
-                </InfoTextWrapper>
-              </InfoWrapper>
-            </RecipeWrapper>
+            <Recipe key={item.id} {...item} />
           ))}
         </>
       )}
