@@ -13,4 +13,9 @@ export const StyledButton = styled.button<ButtonProps>`
   border-radius: ${(props) => props.theme.borderRadius ?? "none"};
   color: ${(props) => props.theme.font.buttonFontColor ?? "black"};
   box-shadow: ${(props) => props.theme.boxShadow ?? "none"};
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.secondary};
+  }
 `;
