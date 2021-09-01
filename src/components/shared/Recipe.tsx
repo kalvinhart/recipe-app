@@ -7,7 +7,7 @@ import {
   RecipeImage,
   RecipeWrapper,
   UL,
-} from "../../styles/recipeStyles";
+} from "./Recipe.styles";
 import { H3, SpanBold } from "../../styles/fontStyles";
 import { Link } from "react-router-dom";
 import Button from "../shared/Button";
