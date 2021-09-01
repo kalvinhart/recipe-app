@@ -13,7 +13,7 @@ const fetchData = async (url: string) => {
 };
 
 export const getRandomRecipe = () => {
-  const baseUrl = `https://api.spoonacular.com/recipes/random?number=1`;
+  const baseUrl = `https://api.spoonacular.com/recipes/random?number=4`;
   return fetchData(baseUrl);
 };
 

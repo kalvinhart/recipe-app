@@ -3,7 +3,7 @@ import { getRandomRecipe } from "../api";
 
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import { RecipeContainer } from "../styles/containerStyles";
+import { Container, RecipeContainer } from "../styles/containerStyles";
 import { H1, H3 } from "../styles/fontStyles";
 import Recipe from "./shared/Recipe";
 
@@ -38,18 +38,20 @@ const RandomRecipes: React.FC = () => {
   }
 
   return (
-    <RecipeContainer>
+    <Container>
       {loading ? (
         <Loader type="ThreeDots" color={theme.colors.primary} />
       ) : (
         <>
           <H1>Random Recipes</H1>
-          {data.recipes.map((item) => (
-            <Recipe key={item.id} {...item} />
-          ))}
+          <RecipeContainer>
+            {data.recipes.map((item) => (
+              <Recipe key={item.id} {...item} />
+            ))}
+          </RecipeContainer>
         </>
       )}
-    </RecipeContainer>
+    </Container>
   );
 };
 

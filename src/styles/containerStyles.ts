@@ -13,7 +13,7 @@ export const HeaderContainer = styled(Container)`
   justify-content: space-between;
   align-items: center;
 
-  @media only screen and (min-width: var(--mq-small)) {
+  @media only screen and (min-width: ${(props) => props.theme.media.small}) {
     padding: 0;
   }
 `;
@@ -23,7 +23,7 @@ export const RecipeContainer = styled(Container)`
   grid-template-columns: 1fr;
   grid-row-gap: 20px;
 
-  @media only screen and (min-width: var(--mq-med)) {
+  @media only screen and (min-width: ${(props) => props.theme.media.med}) {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
   }

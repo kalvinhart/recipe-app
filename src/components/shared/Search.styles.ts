@@ -8,9 +8,9 @@ export const SearchWrapper = styled.div`
   padding: 10px 20px;
   background-color: #e4ebf1;
 
-  @media only screen and (min-width: var(--mq-small)) {
+  @media only screen and (min-width: ${(props) => props.theme.media.med}) {
     position: static;
-    width: 250px;
+    width: 350px;
     margin-right: auto;
     background-color: transparent;
   }
