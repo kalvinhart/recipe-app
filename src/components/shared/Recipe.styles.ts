@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const RecipeWrapper = styled.div`
   width: 100%;
+  height: 280px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -9,12 +10,20 @@ export const RecipeWrapper = styled.div`
   background-color: ${(props) => props.theme.backgrounds.recipe ?? "white"};
   border-radius: ${(props) => props.theme.borderRadius ?? "0"};
   box-shadow: ${(props) => props.theme.boxShadow ?? "none"};
+
+  @media only screen and (min-width: ${(props) => props.theme.media.large}) {
+    height: 350px;
+  }
+
+  @media only screen and (min-width: ${(props) => props.theme.media.xl}) {
+    height: 280px;
+  }
 `;
 
 export const InfoWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: auto;
 `;
 
 export const InfoTextWrapper = styled.div``;
