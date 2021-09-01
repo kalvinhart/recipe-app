@@ -12,8 +12,8 @@ export const RecipeWrapper = styled.div`
 `;
 
 export const InfoWrapper = styled.div`
-  width: 100%;
   display: flex;
+  align-items: center;
   margin-bottom: 40px;
 `;
 
@@ -21,7 +21,27 @@ export const InfoTextWrapper = styled.div``;
 
 export const RecipeImage = styled.img`
   width: 150px;
-  margin-right: 10px;
+  margin-right: 20px;
+
+  @media only screen and (min-width: ${(props) => props.theme.media.small}) {
+    width: 250px;
+    margin-right: 20px;
+  }
+
+  @media only screen and (min-width: ${(props) => props.theme.media.med}) {
+    width: 150px;
+    margin-right: 20px;
+  }
+
+  @media only screen and (min-width: ${(props) => props.theme.media.large}) {
+    width: 250px;
+    margin-right: 20px;
+  }
+
+  @media only screen and (min-width: ${(props) => props.theme.media.xl}) {
+    width: 150px;
+    margin-right: 20px;
+  }
 `;
 
 export const UL = styled.ul`

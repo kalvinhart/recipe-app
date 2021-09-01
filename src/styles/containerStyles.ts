@@ -24,7 +24,11 @@ export const RecipeContainer = styled(Container)`
   grid-row-gap: 20px;
 
   @media only screen and (min-width: ${(props) => props.theme.media.med}) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
+  }
+
+  @media only screen and (min-width: ${(props) => props.theme.media.xl}) {
+    grid-template-columns: repeat(3, 1fr);
   }
 `;

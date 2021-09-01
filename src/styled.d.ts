@@ -24,6 +24,7 @@ declare module "styled-components" {
       small: string;
       med: string;
       large: string;
+      xl?: string;
     };
   }
 }

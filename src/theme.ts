@@ -22,6 +22,7 @@ export const theme: DefaultTheme = {
   media: {
     small: "500px",
     med: "768px",
-    large: "1200px",
+    large: "1024px",
+    xl: "1200px",
   },
 };
