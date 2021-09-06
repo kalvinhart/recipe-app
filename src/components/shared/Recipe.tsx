@@ -8,7 +8,7 @@ import {
   RecipeWrapper,
   UL,
 } from "./Recipe.styles";
-import { H3, SpanBold } from "../../styles/fontStyles";
+import { H2, SpanBold } from "../../styles/fontStyles";
 import { Link } from "react-router-dom";
 import Button from "../shared/Button";
 import RecipeNutrition from "../RecipeNutrition";
@@ -30,9 +30,7 @@ const Recipe: React.FC<RecipeProps> = ({
   title,
   vegan,
 }) => {
-  console.log(analyzedInstructions);
   const [instructions] = analyzedInstructions;
-  console.log("From Recipe: ", instructions.steps);
 
   let nutritionValues: NutritionValues | undefined;
 
@@ -40,11 +38,13 @@ const Recipe: React.FC<RecipeProps> = ({
     nutritionValues = filterNutrients(nutrition);
   }
 
+  const handleSave = (id: number): void => {};
+
   return (
-    <RecipeWrapper key={id}>
-      <H3>{title}</H3>
+    <RecipeWrapper key={id} expanded={expanded}>
+      <H2>{title}</H2>
       <InfoWrapper>
-        <RecipeImage src={image} />
+        <RecipeImage src={image} expanded={expanded} />
         <InfoTextWrapper>
           <UL>
             <LI>{servings} Servings</LI>
@@ -69,15 +69,18 @@ const Recipe: React.FC<RecipeProps> = ({
           </UL>
         </InfoTextWrapper>
       </InfoWrapper>
+
       {!expanded && (
         <Link to={`/recipe/${id}`}>
           <Button text="Find out more..." width="200px" click={() => null}></Button>
         </Link>
       )}
+
       {expanded && (
         <>
           <RecipeNutrition {...nutritionValues} />
           <RecipeInstructions instructions={instructions.steps} />
+          <Button text="Save to Favourites" width="100%" click={() => handleSave(id)} />
         </>
       )}
     </RecipeWrapper>

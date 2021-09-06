@@ -7,6 +7,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { theme } from "../theme";
 import Recipe from "./shared/Recipe";
 import { RecipeProps } from "../interfaces";
+import { Container } from "../styles/containerStyles";
 
 interface Params {
   id: string;
@@ -59,7 +60,9 @@ const RecipeDetail: React.FC = () => {
       {loading ? (
         <Loader type="ThreeDots" color={theme.colors.primary} />
       ) : (
-        <Recipe {...data} />
+        <Container>
+          <Recipe {...data} />
+        </Container>
       )}
     </>
   );

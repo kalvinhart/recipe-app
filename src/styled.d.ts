@@ -21,6 +21,7 @@ declare module "styled-components" {
     borderRadius?: string;
     boxShadow?: string;
     media: {
+      xs: string;
       small: string;
       med: string;
       large: string;

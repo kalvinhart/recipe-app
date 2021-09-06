@@ -5,7 +5,7 @@ import {
   InstructionsList,
   InstructionsStep,
 } from "./shared/Recipe.styles";
-import { H2, SpanBold } from "../styles/fontStyles";
+import { H3, SpanBold } from "../styles/fontStyles";
 
 import { Steps } from "../interfaces";
 
@@ -17,7 +17,7 @@ const RecipeInstructions: React.FC<InstructionsProps> = ({ instructions }) => {
   console.log("From Instructions: ", instructions);
   return (
     <InstructionsWrapper>
-      <H2>Instructions</H2>
+      <H3>Instructions</H3>
       <InstructionsList>
         {instructions.map((item: Steps) => (
           <InstructionsStep>

@@ -20,6 +20,7 @@ export const theme: DefaultTheme = {
   borderRadius: "10px",
   boxShadow: "2px 2px 4px 1px rgba(0, 0, 0, 0.1)",
   media: {
+    xs: "375px",
     small: "500px",
     med: "768px",
     large: "1024px",
