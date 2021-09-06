@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const RecipeWrapper = styled.div`
   width: 100%;
-  height: 280px;
+  min-height: 280px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -58,3 +58,32 @@ export const UL = styled.ul`
 `;
 
 export const LI = styled.li``;
+
+export const NutritionWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+`;
+
+export const MacroWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const InstructionsWrapper = styled.div`
+  width: 100%;
+  margin-bottom: 40px;
+`;
+
+export const InstructionsList = styled.ul`
+  margin-left: 10px;
+`;
+
+export const InstructionsStep = styled.li`
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+`;

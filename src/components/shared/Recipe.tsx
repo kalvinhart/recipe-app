@@ -11,28 +11,35 @@ import {
 import { H3, SpanBold } from "../../styles/fontStyles";
 import { Link } from "react-router-dom";
 import Button from "../shared/Button";
+import RecipeNutrition from "../RecipeNutrition";
+import RecipeInstructions from "../RecipeInstructions";
 
-interface RecipeProps {
-  dairyFree: boolean;
-  glutenFree: boolean;
-  id: number;
-  image: string;
-  readyInMinutes: number;
-  servings: number;
-  title: string;
-  vegan: boolean;
-}
+import { NutritionValues, RecipeProps } from "../../interfaces";
+import { filterNutrients } from "../../utils/nutritionFilter";
 
 const Recipe: React.FC<RecipeProps> = ({
+  analyzedInstructions,
   dairyFree,
+  expanded,
   glutenFree,
   id,
   image,
+  nutrition,
   readyInMinutes,
   servings,
   title,
   vegan,
 }) => {
+  console.log(analyzedInstructions);
+  const [instructions] = analyzedInstructions;
+  console.log("From Recipe: ", instructions.steps);
+
+  let nutritionValues: NutritionValues | undefined;
+
+  if (expanded && nutrition) {
+    nutritionValues = filterNutrients(nutrition);
+  }
+
   return (
     <RecipeWrapper key={id}>
       <H3>{title}</H3>
@@ -41,8 +48,14 @@ const Recipe: React.FC<RecipeProps> = ({
         <InfoTextWrapper>
           <UL>
             <LI>{servings} Servings</LI>
-            <LI>Ready in {readyInMinutes} Minutes</LI>
-            {vegan && <LI>Vegan</LI>}
+            <LI>
+              Ready in <SpanBold>{readyInMinutes}</SpanBold> Minutes
+            </LI>
+            {vegan && (
+              <LI>
+                <SpanBold>Vegan</SpanBold>
+              </LI>
+            )}
             {glutenFree && (
               <LI>
                 <SpanBold>Gluten</SpanBold> free
@@ -56,9 +69,17 @@ const Recipe: React.FC<RecipeProps> = ({
           </UL>
         </InfoTextWrapper>
       </InfoWrapper>
-      <Link to={`/recipe/${id}`}>
-        <Button text="Find out more..." width="200px" click={() => null}></Button>
-      </Link>
+      {!expanded && (
+        <Link to={`/recipe/${id}`}>
+          <Button text="Find out more..." width="200px" click={() => null}></Button>
+        </Link>
+      )}
+      {expanded && (
+        <>
+          <RecipeNutrition {...nutritionValues} />
+          <RecipeInstructions instructions={instructions.steps} />
+        </>
+      )}
     </RecipeWrapper>
   );
 };

@@ -15,8 +15,8 @@ interface RecipeState {
 
 const RandomRecipes: React.FC = () => {
   const [data, setData] = useState<RecipeState>({ recipes: [] });
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<boolean>(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   const getData = async (): Promise<any> => {
     const data = await getRandomRecipe();
@@ -30,6 +30,8 @@ const RandomRecipes: React.FC = () => {
       setLoading(false);
     } catch (err) {
       setError(true);
+    } finally {
+      setLoading(false);
     }
   }, []);
 
@@ -46,7 +48,7 @@ const RandomRecipes: React.FC = () => {
           <H1>Random Recipes</H1>
           <RecipeContainer>
             {data.recipes.map((item) => (
-              <Recipe key={item.id} {...item} />
+              <Recipe key={item.id} expanded={false} {...item} />
             ))}
           </RecipeContainer>
         </>
