@@ -109,6 +109,10 @@ export const MacroWrapper = styled.div`
       margin-left: 0;
     }
   }
+
+  @media only screen and (min-width: ${(props) => props.theme.media.med}) {
+    font-size: 18px;
+  }
 `;
 
 export const InstructionsWrapper = styled.div`

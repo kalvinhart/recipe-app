@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
+import { ThemeContext } from "styled-components";
 
 import {
   InfoTextWrapper,
@@ -30,6 +32,8 @@ const Recipe: React.FC<RecipeProps> = ({
   title,
   vegan,
 }) => {
+  const theme = useContext(ThemeContext);
+  const isWide = useMediaQuery(`(min-width: ${theme.media.med})`);
   const [instructions] = analyzedInstructions;
 
   let nutritionValues: NutritionValues | undefined;
@@ -80,7 +84,11 @@ const Recipe: React.FC<RecipeProps> = ({
         <>
           <RecipeNutrition {...nutritionValues} />
           <RecipeInstructions instructions={instructions.steps} />
-          <Button text="Save to Favourites" width="100%" click={() => handleSave(id)} />
+          <Button
+            text="Save to Favourites"
+            width={isWide ? "200px" : "100%"}
+            click={() => handleSave(id)}
+          />
         </>
       )}
     </RecipeWrapper>
