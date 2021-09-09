@@ -20,7 +20,7 @@ const RecipeInstructions: React.FC<InstructionsProps> = ({ instructions }) => {
       <H3>Instructions</H3>
       <InstructionsList>
         {instructions.map((item: Steps) => (
-          <InstructionsStep>
+          <InstructionsStep key={item.step}>
             <SpanBold>Step {item.number}</SpanBold> - {item.step}
           </InstructionsStep>
         ))}

@@ -8,7 +8,7 @@ const fetchData = async (url: string) => {
     const data = await response.json();
     return data;
   } catch (e) {
-    console.log(e.message);
+    throw new Error(e.message);
   }
 };
 
@@ -17,8 +17,14 @@ export const getRandomRecipe = () => {
   return fetchData(baseUrl);
 };
 
-export const getRecipeInfo = async (id: string) => {
-  if (!id) throw new Error("No recipe ID was specified.");
+export const getRecipeInfo = (id: string) => {
+  if (!id) return;
   const baseUrl = `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true`;
-  return await fetchData(baseUrl);
+  return fetchData(baseUrl);
+};
+
+export const searchForRecipe = (term: string) => {
+  if (term === "") return;
+  const baseUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${term}&number=5&addRecipeInformation=true`;
+  return fetchData(baseUrl);
 };
