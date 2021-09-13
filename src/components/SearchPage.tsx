@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { searchForRecipe } from "../api";
 import { RecipeContainer } from "../styles/containerStyles";
-import { H1 } from "../styles/fontStyles";
+import { H1, H3 } from "../styles/fontStyles";
 import Recipe from "./shared/Recipe";
 
 interface Params {
@@ -46,6 +46,8 @@ const SearchPage = () => {
     results = data.results.map((item) => (
       <Recipe key={item.id} expanded={false} {...item} />
     ));
+  } else {
+    results = <H3>No results found, please try again.</H3>;
   }
 
   return (
