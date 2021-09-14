@@ -31,7 +31,3 @@ export const LogoImage = styled.img`
     margin-right: 10px;
   }
 `;
-
-export const FavouritesWrapper = styled.div`
-  width: 150px;
-`;
