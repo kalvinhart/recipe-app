@@ -1,26 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Header from "./components/shared/Header";
 import Main from "./components/shared/Main";
 import Routes from "./components/Routes";
 
+import { FavouritesProvider } from "./store/FavouritesContext";
+
 const App: React.FC = () => {
-  const [favourites, setFavourties] = useState([]);
-
-  useEffect(() => {
-    if (favourites.length === 0) {
-      if (localStorage.getItem("favourites")) {
-        const favouritesData = JSON.parse(localStorage.getItem("favourites") || "[]");
-        setFavourties(favouritesData);
-      }
-    }
-  }, [favourites]);
-
   return (
     <>
-      <Header favourites={favourites} />
-      <Main>
-        <Routes />
-      </Main>
+      <FavouritesProvider>
+        <Header />
+        <Main>
+          <Routes />
+        </Main>
+      </FavouritesProvider>
     </>
   );
 };

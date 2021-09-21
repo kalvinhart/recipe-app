@@ -16,8 +16,9 @@ import Button from "../shared/Button";
 import RecipeNutrition from "../RecipeNutrition";
 import RecipeInstructions from "../RecipeInstructions";
 
-import { NutritionValues, RecipeProps } from "../../interfaces";
+import { Favourites, NutritionValues, RecipeProps } from "../../interfaces";
 import { filterNutrients } from "../../utils/nutritionFilter";
+import { FavouritesContext } from "../../store/FavouritesContext";
 
 const Recipe: React.FC<RecipeProps> = ({
   analyzedInstructions,
@@ -33,8 +34,12 @@ const Recipe: React.FC<RecipeProps> = ({
   vegan,
 }) => {
   const theme = useContext(ThemeContext);
+  const { favourites, updateFavourites, deleteFavourites } =
+    useContext(FavouritesContext);
   const isWide = useMediaQuery(`(min-width: ${theme.media.med})`);
   const [instructions] = analyzedInstructions;
+
+  const existsInFavourites = favourites.filter((item) => id === item.id).length > 0;
 
   let nutritionValues: NutritionValues | undefined;
 
@@ -42,7 +47,13 @@ const Recipe: React.FC<RecipeProps> = ({
     nutritionValues = filterNutrients(nutrition);
   }
 
-  const handleSave = (id: number): void => {};
+  const handleSave = (data: Favourites): void => {
+    updateFavourites(data);
+  };
+
+  const handleDelete = (id: number): void => {
+    deleteFavourites(id);
+  };
 
   return (
     <RecipeWrapper key={id} expanded={expanded}>
@@ -85,9 +96,13 @@ const Recipe: React.FC<RecipeProps> = ({
           <RecipeNutrition {...nutritionValues} />
           <RecipeInstructions instructions={instructions.steps} />
           <Button
-            text="Save to Favourites"
+            text={existsInFavourites ? "Remove from Favourites" : "Save to Favourites"}
             width={isWide ? "200px" : "100%"}
-            click={() => handleSave(id)}
+            click={
+              existsInFavourites
+                ? () => handleDelete(id)
+                : () => handleSave({ id: id, title: title, image: image })
+            }
           />
         </>
       )}

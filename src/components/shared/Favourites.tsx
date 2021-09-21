@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import {
   FavouritesButton,
@@ -11,13 +11,11 @@ import {
 import Star from "../../assets/star.png";
 import Favourite from "./Favourite";
 import { H3 } from "../../styles/fontStyles";
+import { FavouritesContext } from "../../store/FavouritesContext";
 
-interface FavouritesProps {
-  favourites: any[];
-}
-
-const Favourites: React.FC<FavouritesProps> = ({ favourites }) => {
+const Favourites: React.FC = () => {
   const [showFavourties, setShowFavourites] = useState<boolean>(false);
+  const { favourites } = useContext(FavouritesContext);
 
   const handleClick = () => {
     setShowFavourites((prev) => !prev);
@@ -32,7 +30,7 @@ const Favourites: React.FC<FavouritesProps> = ({ favourites }) => {
         {favourites.length > 0 ? (
           <FavouritesList>
             {favourites.map((item) => (
-              <Favourite key={item.id} data={item} />
+              <Favourite key={item.id} {...item} />
             ))}
           </FavouritesList>
         ) : (

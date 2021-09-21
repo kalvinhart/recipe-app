@@ -1,22 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { H4 } from "../../styles/fontStyles";
-import { FavouriteWrapper, RecipeImage } from "./Favourite.styles";
+import { Favourites } from "../../interfaces";
+import { SpanBold } from "../../styles/fontStyles";
+import {
+  FavouriteLinkContentWrapper,
+  FavouriteWrapper,
+  RecipeImage,
+} from "./Favourite.styles";
 
-interface FavouriteProps {
-  data: {
-    id: string;
-    title: string;
-    image: string;
-  };
-}
-
-const Favourite: React.FC<FavouriteProps> = ({ data }) => {
+const Favourite: React.FC<Favourites> = ({ id, title, image }) => {
   return (
     <FavouriteWrapper>
-      <Link to={`/search/${data.id}`}>
-        <RecipeImage src={data.image} />
-        <H4>{data.title}</H4>
+      <Link to={`/recipe/${id}`}>
+        <FavouriteLinkContentWrapper>
+          <RecipeImage src={image} />
+          <SpanBold>{title}</SpanBold>
+        </FavouriteLinkContentWrapper>
       </Link>
     </FavouriteWrapper>
   );

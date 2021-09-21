@@ -7,11 +7,7 @@ import Logo from "../../assets/finocchio.png";
 import Search from "./Search";
 import Favourites from "./Favourites";
 
-interface HeaderProps {
-  favourites: any[];
-}
-
-const Header: React.FC<HeaderProps> = ({ favourites }) => {
+const Header: React.FC = () => {
   return (
     <>
       <StyledHeader>
@@ -23,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ favourites }) => {
             </LogoWrapper>
           </Link>
           <Search />
-          <Favourites favourites={favourites} />
+          <Favourites />
         </HeaderContainer>
       </StyledHeader>
     </>

@@ -1,3 +1,8 @@
+export interface Favourites {
+  id: number;
+  title: string;
+  image: string;
+}
 export interface NutritionValues {
   Protein?: {
     amount: number;
