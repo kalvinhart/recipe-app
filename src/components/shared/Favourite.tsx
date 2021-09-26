@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Favourites } from "../../interfaces";
+import { FavouritesContext } from "../../store/FavouritesContext";
 import { SpanBold } from "../../styles/fontStyles";
 import {
+  DeleteButton,
   FavouriteLinkContentWrapper,
   FavouriteWrapper,
   RecipeImage,
 } from "./Favourite.styles";
 
 const Favourite: React.FC<Favourites> = ({ id, title, image }) => {
+  const { deleteFavourites } = useContext(FavouritesContext);
+
   return (
     <FavouriteWrapper>
       <Link to={`/recipe/${id}`}>
@@ -17,6 +21,7 @@ const Favourite: React.FC<Favourites> = ({ id, title, image }) => {
           <SpanBold>{title}</SpanBold>
         </FavouriteLinkContentWrapper>
       </Link>
+      <DeleteButton onClick={() => deleteFavourites(id)}>Delete</DeleteButton>
     </FavouriteWrapper>
   );
 };

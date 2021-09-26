@@ -46,7 +46,7 @@ const RecipeDetail: React.FC = () => {
       }
     };
 
-    if (data.id === 0) {
+    if (data.id === 0 || data.id !== Number(id)) {
       getData(id);
     }
   }, [data, id]);

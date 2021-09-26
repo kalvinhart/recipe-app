@@ -97,7 +97,7 @@ const Recipe: React.FC<RecipeProps> = ({
           <RecipeInstructions instructions={instructions.steps} />
           <Button
             text={existsInFavourites ? "Remove from Favourites" : "Save to Favourites"}
-            width={isWide ? "200px" : "100%"}
+            width={isWide ? "300px" : "100%"}
             click={
               existsInFavourites
                 ? () => handleDelete(id)
