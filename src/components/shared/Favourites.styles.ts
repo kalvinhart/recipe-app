@@ -26,6 +26,10 @@ export const FavouritesListWrapper = styled.div<Favourites>`
   right: 0;
   background-color: ${(props) => props.theme.backgrounds.header};
   box-shadow: ${(props) => props.theme.boxShadow};
+
+  @media only screen and (min-width: ${(props) => props.theme.media.med}) {
+    width: 400px;
+  }
 `;
 
 export const FavouritesList = styled.ul`

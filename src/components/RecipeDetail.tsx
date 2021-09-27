@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getRecipeInfo } from "../api";
 import { H3 } from "../styles/fontStyles";
-import Loader from "react-loader-spinner";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import { theme } from "../theme";
+import Loading from "./shared/Loading";
 import Recipe from "./shared/Recipe";
 import { RecipeProps } from "../interfaces";
 import { Container } from "../styles/containerStyles";
@@ -58,7 +56,7 @@ const RecipeDetail: React.FC = () => {
   return (
     <>
       {loading ? (
-        <Loader type="ThreeDots" color={theme.colors.primary} />
+        <Loading />
       ) : (
         <Container>
           <Recipe {...data} />

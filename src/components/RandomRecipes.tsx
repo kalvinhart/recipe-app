@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { getRandomRecipe } from "../api";
 
-import Loader from "react-loader-spinner";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { Container, RecipeContainer } from "../styles/containerStyles";
 import { H1, H3 } from "../styles/fontStyles";
 import Recipe from "./shared/Recipe";
 
-import { theme } from "../theme";
+import Loading from "./shared/Loading";
 
 interface RecipeState {
   recipes: any[];
@@ -42,7 +40,7 @@ const RandomRecipes: React.FC = () => {
   return (
     <Container>
       {loading ? (
-        <Loader type="ThreeDots" color={theme.colors.primary} />
+        <Loading />
       ) : (
         <>
           <H1>Random Recipes</H1>

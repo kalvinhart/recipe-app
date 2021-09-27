@@ -14,6 +14,10 @@ export const SearchWrapper = styled.div`
     margin-right: auto;
     background-color: transparent;
   }
+
+  @media only screen and (min-width: ${(props) => props.theme.media.med}) {
+    width: 500px;
+  }
 `;
 
 export const Form = styled.form`

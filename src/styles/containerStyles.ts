@@ -13,7 +13,7 @@ export const HeaderContainer = styled(Container)`
   justify-content: space-between;
   align-items: center;
 
-  @media only screen and (min-width: ${(props) => props.theme.media.small}) {
+  @media only screen and (min-width: ${(props) => props.theme.media.xl}) {
     padding: 0;
   }
 `;
