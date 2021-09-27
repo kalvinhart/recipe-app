@@ -17,11 +17,16 @@ const Favourite: React.FC<Favourites> = ({ id, title, image }) => {
     <FavouriteWrapper>
       <Link to={`/recipe/${id}`}>
         <FavouriteLinkContentWrapper>
-          <RecipeImage src={image} />
+          <RecipeImage src={image} alt={title} />
           <SpanBold>{title}</SpanBold>
         </FavouriteLinkContentWrapper>
       </Link>
-      <DeleteButton onClick={() => deleteFavourites(id)}>Delete</DeleteButton>
+      <DeleteButton
+        onClick={() => deleteFavourites(id)}
+        aria-label="Delete from Favourites"
+      >
+        Delete
+      </DeleteButton>
     </FavouriteWrapper>
   );
 };

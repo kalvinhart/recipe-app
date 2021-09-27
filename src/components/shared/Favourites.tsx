@@ -23,8 +23,8 @@ const Favourites: React.FC = () => {
 
   return (
     <FavouritesWrapper>
-      <FavouritesButton onClick={handleClick}>
-        <StarImage src={Star} />
+      <FavouritesButton onClick={handleClick} aria-label="Favourites">
+        <StarImage src={Star} alt="Favourites" />
       </FavouritesButton>
       <FavouritesListWrapper show={showFavourties}>
         {favourites.length > 0 ? (

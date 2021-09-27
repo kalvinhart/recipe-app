@@ -59,7 +59,7 @@ const Recipe: React.FC<RecipeProps> = ({
     <RecipeWrapper key={id} expanded={expanded}>
       <H2>{title}</H2>
       <InfoWrapper>
-        <RecipeImage src={image} expanded={expanded} />
+        <RecipeImage src={image} expanded={expanded} alt={title} />
         <InfoTextWrapper>
           <UL>
             <LI>{servings} Servings</LI>
@@ -87,7 +87,12 @@ const Recipe: React.FC<RecipeProps> = ({
 
       {!expanded && (
         <Link to={`/recipe/${id}`}>
-          <Button text="Find out more..." width="200px" click={() => null}></Button>
+          <Button
+            text="Find out more..."
+            width="200px"
+            click={() => null}
+            aria-label="Find out more"
+          ></Button>
         </Link>
       )}
 
@@ -102,6 +107,9 @@ const Recipe: React.FC<RecipeProps> = ({
               existsInFavourites
                 ? () => handleDelete(id)
                 : () => handleSave({ id: id, title: title, image: image })
+            }
+            aria-label={
+              existsInFavourites ? "Remove from Favourites" : "Save to Favourites"
             }
           />
         </>
