@@ -1,20 +1,28 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
-import RandomRecipes from "./RandomRecipes";
-import RecipeDetail from "./RecipeDetail";
-import SearchPage from "./SearchPage";
+import Loading from "./shared/Loading";
+
+const RandomRecipes = React.lazy(() => import("./RandomRecipes"));
+const RecipeDetail = React.lazy(() => import("./RecipeDetail"));
+const SearchPage = React.lazy(() => import("./SearchPage"));
 
 const Routes: React.FC = () => {
   return (
     <Switch>
       <Route exact path="/recipe/:id">
-        <RecipeDetail />
+        <Suspense fallback={<Loading />}>
+          <RecipeDetail />
+        </Suspense>
       </Route>
       <Route exact path="/search/:term">
-        <SearchPage />
+        <Suspense fallback={<Loading />}>
+          <SearchPage />
+        </Suspense>
       </Route>
       <Route exact path="/">
-        <RandomRecipes />
+        <Suspense fallback={<Loading />}>
+          <RandomRecipes />
+        </Suspense>
       </Route>
     </Switch>
   );
