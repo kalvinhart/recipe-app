@@ -24,7 +24,7 @@ const RandomRecipes: React.FC = () => {
 
   useEffect(() => {
     try {
-      // getData();
+      getData();
       setLoading(false);
     } catch (err) {
       setError(true);
