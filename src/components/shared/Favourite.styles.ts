@@ -2,9 +2,8 @@ import styled from "styled-components";
 
 export const DeleteButton = styled.button`
   position: absolute;
-  top: 45px;
-  left: -40px;
-  transform: translateY(-50%);
+  top: 10px;
+  right: 10px;
   display: none;
   width: 70px;
   padding: 5px 10px;
